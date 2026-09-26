@@ -41,15 +41,16 @@ export const EVIDENCE: Record<Evidence, { label: string; short: string; desc: st
 };
 
 export const BRAND = {
-  name: "NanoFood",
-  suffix: "Kit",
-  workingNameNote: "Working name — replace in src/content/research.ts",
+  name: "Drishya",
+  metaTitle: "Drishya | Rapid On-Site Food Screening",
+  metaDescription:
+    "Drishya is a proposed portable, nano-engineered food screening platform — a handheld reader and disposable paper-microfluidic cartridge for rapid on-site screening of food samples for common adulterants. Research and design stage.",
   title:
     "Development of a Portable Nano-Engineered Rapid Food Testing Kit for On-Site Detection of Food Adulterants and Contaminants",
   headline: "Detect. Analyze. Protect.",
   sub: "Portable Nano-Engineered Rapid Food Testing",
   description:
-    "A proposed handheld reader and disposable paper-microfluidic cartridge that screens milk and spices for common adulterants in minutes — using nanoparticle colorimetry, graphene-based electrochemistry and an ESP32 + smartphone readout.",
+    "Drishya is a proposed handheld reader and disposable paper-microfluidic cartridge that screens milk and spices for common adulterants in minutes — using nanoparticle colorimetry, graphene-based electrochemistry and an ESP32 + smartphone readout.",
   status: "Research & design stage — prototype not yet built",
 };
 

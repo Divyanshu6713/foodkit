@@ -1,6 +1,6 @@
-# NanoFood Kit — interactive research site
+# Drishya — interactive research site
 
-An immersive 3D website for the student project **"Development of a Portable Nano-Engineered Rapid Food Testing Kit for On-Site Detection of Food Adulterants and Contaminants."**
+**Drishya** is a proposed portable food-screening platform: a reusable handheld reader and disposable paper-microfluidic sensing cartridges. This is its immersive 3D website, built for the student project **"Development of a Portable Nano-Engineered Rapid Food Testing Kit for On-Site Detection of Food Adulterants and Contaminants."**
 
 The project is at the research and design stage. Everything on the site is labelled with one of four evidence tags:
 
@@ -31,10 +31,13 @@ src/content/device.ts       ← reader components: name, function, role, explana
 src/components/three/       ← shared 3D: Device model, paper-strip texture, lights, lazy canvas mount
 src/components/nano/        ← nanoscale engine: AgNP/AuNP aggregation, Ag/GO electrode, starch–iodine, indicators
 src/components/sections/    ← one folder per page section (hero, samples, testdemo, journey, nanolab, …)
+src/components/brand/        ← DrishyaLogo (wordmark) and DrishyaIcon (splash badge)
 src/lib/                    ← color model, colorimetry model, store, pointer, in-view hooks
 ```
 
-To change a number, edit `src/content/research.ts`, not the components. The brand name ("NanoFood Kit") is a working name set in `BRAND` in the same file.
+To change a number, edit `src/content/research.ts`, not the components. The brand name, page title and description live in `BRAND` in the same file.
+
+Brand assets (logo, icon, favicon, app icons, social image) are generated from the approved logo by `brand/build_brand.py`. See `brand/README.md` for the rules.
 
 ## Page sections
 

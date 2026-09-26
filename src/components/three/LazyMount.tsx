@@ -1,6 +1,7 @@
 "use client";
 import type { ReactNode } from "react";
 import { useInView } from "@/lib/useInView";
+import { DrishyaIcon } from "@/components/brand/DrishyaIcon";
 
 /**
  * Mounts heavy children (WebGL canvases) only while the wrapper is near the
@@ -27,7 +28,8 @@ export function LazyMount({
 
 export function CanvasFallback({ label = "Loading 3D scene" }: { label?: string }) {
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center gap-2.5">
+      <DrishyaIcon small className="h-5 w-5 opacity-80 motion-safe:animate-pulse" />
       <span className="mono text-xs tracking-widest text-muted uppercase">{label}…</span>
     </div>
   );

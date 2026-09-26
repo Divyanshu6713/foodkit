@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { BRAND } from "@/content/research";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NanoFood Kit — Portable Nano-Engineered Rapid Food Testing",
-  description:
-    "Interactive research showcase for a proposed portable nano-engineered rapid food testing kit: paper-microfluidic cartridge, AgNP / Ag-GO sensing, ESP32 + smartphone readout.",
+  // Absolute URLs for the social preview image. Set NEXT_PUBLIC_SITE_URL at build
+  // time; on Vercel, Next falls back to the deployment URL automatically.
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : undefined,
+  title: BRAND.metaTitle,
+  description: BRAND.metaDescription,
+  applicationName: BRAND.name,
+  openGraph: {
+    type: "website",
+    siteName: BRAND.name,
+    title: BRAND.metaTitle,
+    description: BRAND.metaDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: BRAND.metaTitle,
+    description: BRAND.metaDescription,
+  },
 };
 
 export const viewport: Viewport = {

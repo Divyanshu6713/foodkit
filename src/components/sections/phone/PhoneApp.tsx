@@ -108,7 +108,7 @@ export function PhoneApp() {
               <div className="px-4 pt-6">
                 <div className="flex items-center justify-between">
                   <div className="text-base font-semibold">{TABS.find((t) => t.id === tab)!.label}</div>
-                  <span className="mono text-[9px] text-muted">NanoFood · BT linked</span>
+                  <span className="mono text-[9px] text-muted">Drishya · BT linked</span>
                 </div>
               </div>
               <div className="relative mt-3 h-[470px] px-4">

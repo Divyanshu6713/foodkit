@@ -175,7 +175,7 @@ export function Device({
   flapOpen = 0,
   led = "off",
   scanning = false,
-  screen = ["NANOFOOD KIT", "READY", "Insert cartridge"],
+  screen = ["DRISHYA", "READY", "Insert cartridge"],
   strip,
   labels = false,
   registry,

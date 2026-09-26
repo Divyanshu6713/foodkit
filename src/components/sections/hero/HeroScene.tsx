@@ -111,7 +111,7 @@ function Rig({ explore, selected, hovered, onHover, onSelect }: HeroSceneProps) 
         onSelect={(id) => onSelect(id)}
         labels={explore}
         led="off"
-        screen={["NANOFOOD KIT", "READY", "Insert cartridge", "DEMO UI"]}
+        screen={["DRISHYA", "READY", "Insert cartridge", "DEMO UI"]}
         registry={registry}
       />
       <ContactShadows position={[0, -0.44, 0]} opacity={explore ? 0.2 : 0.55} scale={9} blur={2.6} far={3} color="#000" />

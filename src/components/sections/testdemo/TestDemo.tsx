@@ -87,7 +87,7 @@ export function TestDemo() {
       case "result":
         return ["SIMULATED", result ? formatValue(result.value, tgt!.unit) : "", result?.verdict === "fail" ? "FLAGGED" : "OK", "Demo only"];
       default:
-        return ["NANOFOOD KIT", "READY", "Insert cartridge", "DEMO UI"];
+        return ["DRISHYA", "READY", "Insert cartridge", "DEMO UI"];
     }
   }, [phase, tgt, method, result]);
 

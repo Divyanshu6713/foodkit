@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { BRAND } from "@/content/research";
+import { DrishyaLogo } from "@/components/brand/DrishyaLogo";
 import { scrollToId } from "@/lib/store";
 
 const LINKS = [
@@ -14,24 +14,6 @@ const LINKS = [
   { id: "data", label: "Data" },
   { id: "database", label: "Database" },
 ];
-
-export function Logo() {
-  return (
-    <span className="flex items-center gap-2">
-      <svg viewBox="0 0 32 32" className="h-7 w-7" aria-hidden>
-        <circle cx="16" cy="16" r="14" fill="none" stroke="var(--nano)" strokeWidth="1.5" opacity="0.5" />
-        <circle cx="16" cy="16" r="5" fill="var(--nano)" />
-        <circle cx="16" cy="4.5" r="2.2" fill="var(--ag)" />
-        <circle cx="26" cy="21.5" r="2.2" fill="var(--au)" />
-        <circle cx="6" cy="21.5" r="2.2" fill="var(--signal)" />
-      </svg>
-      <span className="text-[15px] font-semibold tracking-tight">
-        {BRAND.name}
-        <span className="text-nano">{BRAND.suffix}</span>
-      </span>
-    </span>
-  );
-}
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -64,8 +46,8 @@ export function Nav() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "border-b border-line bg-bg/75 backdrop-blur-xl" : ""}`}>
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main">
-        <button type="button" onClick={() => go("top")} aria-label="Back to top">
-          <Logo />
+        <button type="button" onClick={() => go("top")} aria-label="Drishya, back to top" className="-ml-1 flex items-center">
+          <DrishyaLogo className="h-11 w-auto" />
         </button>
         <ul className="hidden items-center gap-1 lg:flex">
           {LINKS.map((l) => (
