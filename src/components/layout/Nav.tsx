@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { DrishyaLogo } from "@/components/brand/DrishyaLogo";
 import { scrollToId } from "@/lib/store";
@@ -63,6 +64,12 @@ export function Nav() {
           ))}
         </ul>
         <div className="flex items-center gap-2">
+          <Link
+            href="/nanosense"
+            className="hidden rounded-full border border-nano/40 px-4 py-1.5 text-sm text-nano transition-colors hover:bg-nano/10 md:block"
+          >
+            NanoSense demo
+          </Link>
           <button
             type="button"
             onClick={() => go("test")}
@@ -77,6 +84,11 @@ export function Nav() {
       </nav>
       {open && (
         <ul className="grid grid-cols-2 gap-1 border-t border-line px-4 py-3 lg:hidden">
+          <li className="col-span-2">
+            <Link href="/nanosense" className="block rounded-md px-3 py-2 text-sm text-nano hover:bg-surface">
+              NanoSense demo →
+            </Link>
+          </li>
           {LINKS.map((l) => (
             <li key={l.id}>
               <button type="button" onClick={() => go(l.id)} className="w-full rounded-md px-3 py-2 text-left text-sm text-text-2 hover:bg-surface hover:text-text">

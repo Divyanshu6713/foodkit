@@ -51,6 +51,24 @@
   --color-good: var(--good);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* NanoSense (/nanosense) tokens, scoped to .ns below */
+  --color-ns-bg: var(--ns-bg);
+  --color-ns-bg2: var(--ns-bg-2);
+  --color-ns-surface: var(--ns-surface);
+  --color-ns-surface2: var(--ns-surface-2);
+  --color-ns-line: var(--ns-line);
+  --color-ns-line2: var(--ns-line-2);
+  --color-ns-text: var(--ns-text);
+  --color-ns-text2: var(--ns-text-2);
+  --color-ns-muted: var(--ns-muted);
+  --color-ns-blue: var(--ns-blue);
+  --color-ns-green: var(--ns-green);
+  --color-ns-amber: var(--ns-amber);
+  --color-ns-violet: var(--ns-violet);
+  --color-ns-s1: var(--ns-s1);
+  --color-ns-s2: var(--ns-s2);
+  --color-ns-s3: var(--ns-s3);
 }
 
 html {
@@ -226,5 +244,204 @@ input[type="range"].range:focus-visible {
   .wire::after {
     animation: none;
     display: none;
+  }
+}
+
+/* ================================================================== */
+/* NanoSense demonstration app (/nanosense): light by default,        */
+/* dark via data-theme="dark" on the .ns root.                         */
+/* ================================================================== */
+.ns {
+  color-scheme: light;
+  --ns-bg: #f5f7fa;
+  --ns-bg-2: #eaeff5;
+  --ns-surface: #ffffff;
+  --ns-surface-2: #f2f5f9;
+  --ns-line: rgba(16, 36, 62, 0.09);
+  --ns-line-2: rgba(16, 36, 62, 0.17);
+  --ns-text: #0d1724;
+  --ns-text-2: #445366;
+  --ns-muted: #66768a;
+  --ns-blue: #1d64d8;
+  --ns-green: #0b8a5f;
+  --ns-amber: #a8570a;
+  --ns-violet: #5b48c7;
+  /* chart series: control / reference / unknown (validated all-pairs) */
+  --ns-s1: #2a78d6;
+  --ns-s2: #eb6834;
+  --ns-s3: #1baf7a;
+  --ns-glass: rgba(255, 255, 255, 0.72);
+  --ns-shadow: 0 1px 2px rgba(16, 36, 62, 0.05), 0 8px 24px -12px rgba(16, 36, 62, 0.14);
+  background: var(--ns-bg);
+  color: var(--ns-text);
+  min-height: 100vh;
+}
+.ns[data-theme="dark"] {
+  color-scheme: dark;
+  --ns-bg: #070b12;
+  --ns-bg-2: #0b111b;
+  --ns-surface: #0e1521;
+  --ns-surface-2: #141d2b;
+  --ns-line: rgba(176, 206, 240, 0.09);
+  --ns-line-2: rgba(176, 206, 240, 0.17);
+  --ns-text: #e6edf6;
+  --ns-text-2: #a4b2c3;
+  --ns-muted: #76869a;
+  --ns-blue: #5d9bff;
+  --ns-green: #3fd19a;
+  --ns-amber: #f2b048;
+  --ns-violet: #a797ff;
+  --ns-s1: #3987e5;
+  --ns-s2: #d95926;
+  --ns-s3: #199e70;
+  --ns-glass: rgba(14, 21, 33, 0.7);
+  --ns-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+}
+html:has(.ns) {
+  background: var(--ns-page, #f5f7fa);
+}
+html:has(.ns[data-theme="dark"]) {
+  --ns-page: #070b12;
+}
+html:has(.ns) body {
+  background: transparent;
+}
+.ns ::selection {
+  background: color-mix(in oklab, var(--ns-blue) 25%, transparent);
+}
+.ns :focus-visible {
+  outline: 2px solid var(--ns-blue);
+  outline-offset: 2px;
+}
+.ns-card {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-line);
+  border-radius: 16px;
+  box-shadow: var(--ns-shadow);
+}
+.ns-glass {
+  background: var(--ns-glass);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid var(--ns-line-2);
+}
+.ns-eyebrow {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ns-blue);
+}
+.ns-grid {
+  background-image:
+    linear-gradient(var(--ns-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ns-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 70%);
+}
+.ns-term {
+  text-decoration: underline dotted color-mix(in oklab, var(--ns-blue) 60%, transparent);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.ns input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ns-line-2);
+}
+.ns input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--ns-s3);
+  border: 3px solid var(--ns-surface);
+  box-shadow: 0 0 0 1px var(--ns-s3), 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.ns input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--ns-s3);
+  border: 3px solid var(--ns-surface);
+  cursor: pointer;
+}
+@keyframes ns-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.ns-flow {
+  stroke-dasharray: 4 6;
+  animation: ns-flow 0.9s linear infinite;
+}
+@keyframes ns-scan {
+  0% { top: 4%; }
+  50% { top: 92%; }
+  100% { top: 4%; }
+}
+.ns-scanline {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ns-s3), transparent);
+  box-shadow: 0 0 12px var(--ns-s3);
+  animation: ns-scan 1.6s ease-in-out infinite;
+}
+@keyframes ns-pulse {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.ns-pulse {
+  animation: ns-pulse 1.6s ease-out infinite;
+}
+@keyframes ns-packet {
+  0% { left: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+.ns-wire {
+  position: relative;
+  height: 2px;
+  background: var(--ns-line-2);
+}
+.ns-wire::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 999px;
+  background: var(--ns-blue);
+  box-shadow: 0 0 10px var(--ns-blue);
+  animation: ns-packet 1.8s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ns-flow,
+  .ns-scanline,
+  .ns-pulse,
+  .ns-wire::after {
+    animation: none;
+  }
+}
+@media print {
+  html:has(.ns),
+  html:has(.ns) body,
+  .ns {
+    background: #fff !important;
+  }
+  .ns-noprint {
+    display: none !important;
+  }
+  .ns-print-area {
+    box-shadow: none !important;
+    border-color: #ccc !important;
   }
 }
